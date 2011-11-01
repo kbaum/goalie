@@ -63,7 +63,7 @@ module Goalie
       log_error(exception)
 
       request = ActionDispatch::Request.new(env)
-      if @consider_all_requests_local || request.local?
+      if @consider_all_requests_local
         rescue_action_locally(request, exception)
       else
         rescue_action_in_public(request, exception)
